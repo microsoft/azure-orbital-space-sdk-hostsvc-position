@@ -10,6 +10,8 @@ Outputs:
 | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | `Microsoft.Azure.SpaceFx.HostServices.Position.Plugins.1.0.0.nupkg` | DotNet Nuget Package for building Hostsvc-Position Plugins                           |
 | `Position.proto`                                                    | A protobuf file for serializing and deserializing messages used by Hostsvc-Position. |
+| `hostsvc-position:0.11.0`                                           | Container image for app                                                              |
+| `hostsvc-position:0.11.0_base`                                      | Base container image for app.  Requires SpaceSDK_Base and build service              |
 
 ## Building
 
@@ -23,44 +25,43 @@ Outputs:
     cd -
     ```
 
-1. Trigger build of Azure Orbital Space SDK Nuget Package
+1. Build the nuget packages and the container images.  (Note: container images will automatically push)
 
     ```bash
     # clone this repo
-    git clone https://github.com/microsoft/azure-orbital-space-sdk-core
+    git clone https://github.com/microsoft/azure-orbital-space-sdk-hostsvc-position
 
-    cd azure-orbital-space-sdk-setup
+    cd azure-orbital-space-sdk-hostsvc-position
 
     # Trigger the build_app.sh from azure-orbital-space-sdk-setup
     /var/spacedev/build/dotnet/build_app.sh \
-        --annotation-config azure-orbital-space-sdk-hostsvc-position.yaml \
-        --architecture amd64 \
-        --app-project src/hostsvc-position.csproj \
-        --app-version 0.11.0 \
-        --output /var/spacedev/tmp/spacesdk-core/output \
         --repo-dir ${PWD} \
+        --app-project src/hostsvc-position.csproj \
         --nuget-project src_pluginBase/pluginBase.csproj \
-        --no-container-build
+        --architecture amd64 \
+        --output-dir /var/spacedev/tmp/hostsvc-position \
+        --app-version 0.11.0 \
+        --annotation-config azure-orbital-space-sdk-hostsvc-position.yaml
     ```
 
 1. Copy the build artifacts to their locations in /var/spacedev
 
     ```bash
-    sudo mkdir -p /var/spacedev/nuget/core
-    sudo mkdir -p /var/spacedev/protos/spacefx/protos/common
+    sudo mkdir -p /var/spacedev/nuget/position
+    sudo mkdir -p /var/spacedev/protos/spacefx/protos/position
 
-    sudo cp /var/spacedev/tmp/spacesdk-core/output/amd64/Microsoft.Azure.SpaceSDK.Core.0.11.0.nupkg /var/spacedev/nuget/core/
-    sudo cp ${PWD}/src/Protos/Common.proto /var/spacedev/protos/spacefx/protos/common/
+    sudo cp /var/spacedev/tmp/hostsvc-position/amd64/nuget/Microsoft.Azure.SpaceFx.HostServices.Position.Plugins.0.11.0.nupkg /var/spacedev/nuget/position/
+    sudo cp ${PWD}/src/Protos/Position.proto /var/spacedev/protos/spacefx/protos/position/
     ```
 
 1. Push the artifacts to the container registry
 
     ```bash
     # Push the nuget package to the container registry
-    /var/spacedev/build/push_build_artifact.sh --artifact /var/spacedev/nuget/core/Microsoft.Azure.SpaceSDK.Core.0.11.0.nupkg --annotation-config azure-orbital-space-sdk-core.yaml --architecture amd64 --artifact-version 0.11.0
+    /var/spacedev/build/push_build_artifact.sh --artifact /var/spacedev/nuget/position/Microsoft.Azure.SpaceFx.HostServices.Position.Plugins.0.11.0.nupkg --annotation-config azure-orbital-space-sdk-hostsvc-position.yaml --architecture amd64 --artifact-version 0.11.0
 
-    # Push the Common.proto to the container registry
-    /var/spacedev/build/push_build_artifact.sh --artifact /var/spacedev/protos/spacefx/protos/common/Common.proto --annotation-config azure-orbital-space-sdk-core.yaml --architecture amd64 --artifact-version 0.11.0
+    # Push the proto to the container registry
+    /var/spacedev/build/push_build_artifact.sh --artifact /var/spacedev/protos/spacefx/protos/position/Position.proto --annotation-config azure-orbital-space-sdk-hostsvc-position.yaml --architecture amd64 --artifact-version 0.11.0
     ```
 
 ## Contributing
