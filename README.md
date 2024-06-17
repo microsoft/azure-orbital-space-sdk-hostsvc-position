@@ -58,10 +58,18 @@ Outputs:
 
     ```bash
     # Push the nuget package to the container registry
-    /var/spacedev/build/push_build_artifact.sh --artifact /var/spacedev/nuget/position/Microsoft.Azure.SpaceFx.HostServices.Position.Plugins.0.11.0.nupkg --annotation-config azure-orbital-space-sdk-hostsvc-position.yaml --architecture amd64 --artifact-version 0.11.0
+    /var/spacedev/build/push_build_artifact.sh \
+            --artifact /var/spacedev/nuget/position/Microsoft.Azure.SpaceFx.HostServices.Position.Plugins.0.11.0.nupkg \
+            --annotation-config azure-orbital-space-sdk-hostsvc-position.yaml \
+            --architecture amd64 \
+            --artifact-version 0.11.0
 
     # Push the proto to the container registry
-    /var/spacedev/build/push_build_artifact.sh --artifact /var/spacedev/protos/spacefx/protos/position/Position.proto --annotation-config azure-orbital-space-sdk-hostsvc-position.yaml --architecture amd64 --artifact-version 0.11.0
+    /var/spacedev/build/push_build_artifact.sh \
+            --artifact /var/spacedev/protos/spacefx/protos/position/Position.proto \
+            --annotation-config azure-orbital-space-sdk-hostsvc-position.yaml \
+            --architecture amd64 \
+            --artifact-version 0.11.0
     ```
 
 ## Contributing
