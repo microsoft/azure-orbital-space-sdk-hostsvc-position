@@ -6,11 +6,11 @@ This repository hosts the Hostsvc-Position.
 
 Outputs:
 
-| Item                                                                | Description                                                                          |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| `Microsoft.Azure.SpaceFx.HostServices.Position.Plugins.1.0.0.nupkg` | DotNet Nuget Package for building Hostsvc-Position Plugins                           |
-| `hostsvc-position:0.11.0`                                           | Container image for app                                                              |
-| `hostsvc-position:0.11.0_base`                                      | Base container image for app.  Requires SpaceSDK_Base and build service              |
+| Item                                                                 | Description                                                             |
+| -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `Microsoft.Azure.SpaceSDK.HostServices.Position.Plugins.1.0.0.nupkg` | DotNet Nuget Package for building Hostsvc-Position Plugins              |
+| `hostsvc-position:0.11.0`                                            | Container image for app                                                 |
+| `hostsvc-position:0.11.0_base`                                       | Base container image for app.  Requires SpaceSDK_Base and build service |
 
 ## Building
 
@@ -48,7 +48,7 @@ Outputs:
     ```bash
     sudo mkdir -p /var/spacedev/nuget/position
 
-    sudo cp /var/spacedev/tmp/hostsvc-position/amd64/nuget/Microsoft.Azure.SpaceFx.HostServices.Position.Plugins.0.11.0.nupkg /var/spacedev/nuget/position/
+    sudo cp /var/spacedev/tmp/hostsvc-position/amd64/nuget/Microsoft.Azure.SpaceSDK.HostServices.Position.Plugins.0.11.0.nupkg /var/spacedev/nuget/position/
     ```
 
 1. Push the artifacts to the container registry
@@ -56,7 +56,7 @@ Outputs:
     ```bash
     # Push the nuget package to the container registry
     /var/spacedev/build/push_build_artifact.sh \
-            --artifact /var/spacedev/nuget/position/Microsoft.Azure.SpaceFx.HostServices.Position.Plugins.0.11.0.nupkg \
+            --artifact /var/spacedev/nuget/position/Microsoft.Azure.SpaceSDK.HostServices.Position.Plugins.0.11.0.nupkg \
             --annotation-config azure-orbital-space-sdk-hostsvc-position.yaml \
             --architecture amd64 \
             --artifact-version 0.11.0
