@@ -3,5 +3,6 @@
     "omnisharp.enableRoslynAnalyzers": true,
     "editor.formatOnSave": true,
     "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
-    "dotnet.defaultSolution": "hostsvc-position.sln"
+    "dotnet.defaultSolution": "hostsvc-position.sln",
+    "window.title": "${dirty}spacesdk-hostsvc-position${separator}${activeEditorShort}${separator}${profileName}${separator}${appName}"
 }
