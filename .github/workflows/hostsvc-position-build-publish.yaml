@@ -35,6 +35,8 @@ jobs:
       APP_PROJECT: ./src/hostsvc-position.csproj
       NUGET_PROJECT: ./src_pluginBase/pluginBase.csproj
       OUTPUT_DIR: /var/spacedev/tmp/hostsvc-position
+      NUGET_STAGING_DIRECTORY: /var/spacedev/nuget/position
+      NUGET_FILE_PREFIX: Microsoft.Azure.SpaceSDK.HostServices.Position.Plugins
       ANNOTATION: azure-orbital-space-sdk-hostsvc-position.yaml
       WORKFLOW_AGENT: ubuntu-latest
       ARCHITECTURE: arm64
