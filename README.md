@@ -1,6 +1,6 @@
 # Azure Orbital Space SDK - Hostsvc-Position
 
-[![spacefx-dev-build-publish](https://github.com/microsoft/azure-orbital-space-sdk-core/actions/workflows/devcontainer-feature-build-publish.yml/badge.svg)](https://github.com/microsoft/azure-orbital-space-sdk-core/actions/workflows/devcontainer-feature-build-publish.yml)
+[![hostsvc-position-build](https://github.com/microsoft/azure-orbital-space-sdk-hostsvc-position/actions/workflows/hostsvc-position-build-publish.yaml/badge.svg)](https://github.com/microsoft/azure-orbital-space-sdk-hostsvc-position/actions/workflows/hostsvc-position-build-publish.yaml)
 
 This repository hosts the Hostsvc-Position.
 
