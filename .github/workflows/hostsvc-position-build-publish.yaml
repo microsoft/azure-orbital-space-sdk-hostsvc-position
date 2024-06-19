@@ -1,0 +1,44 @@
+name: hostsvc-position-build
+
+on: 
+    workflow_dispatch:
+    push:
+        branches:
+        - km/add_action
+
+jobs:
+  build-hostsvc-position-amd64:
+    permissions:
+      contents: read
+      packages: write
+
+    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/service-build.yml@km/add_service_workflow
+    with:
+      APP_PROJECT: ./src/hostsvc-position.csproj
+      NUGET_PROJECT: ./src_pluginBase/pluginBase.csproj
+      OUTPUT_DIR: /var/spacedev/tmp/hostsvc-position
+      ANNOTATION: azure-orbital-space-sdk-hostsvc-position.yaml
+      WORKFLOW_AGENT: ubuntu-latest
+      ARCHITECTURE: amd64
+    secrets:
+      GIT_HUB_USER_NAME: ${{ secrets.GIT_HUB_USER_NAME }}
+      GIT_HUB_USER_TOKEN: ${{ secrets.GIT_HUB_USER_TOKEN }}
+      SETUP_REPO_URL: ${{ secrets.SETUP_REPO_URL }}
+
+  build-hostsvc-position-arm64:
+    permissions:
+      contents: read
+      packages: write
+
+    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/service-build.yml@km/add_service_workflow
+    with:
+      APP_PROJECT: ./src/hostsvc-position.csproj
+      NUGET_PROJECT: ./src_pluginBase/pluginBase.csproj
+      OUTPUT_DIR: /var/spacedev/tmp/hostsvc-position
+      ANNOTATION: azure-orbital-space-sdk-hostsvc-position.yaml
+      WORKFLOW_AGENT: ubuntu-latest
+      ARCHITECTURE: arm64
+    secrets:
+      GIT_HUB_USER_NAME: ${{ secrets.GIT_HUB_USER_NAME }}
+      GIT_HUB_USER_TOKEN: ${{ secrets.GIT_HUB_USER_TOKEN }}
+      SETUP_REPO_URL: ${{ secrets.SETUP_REPO_URL }}
