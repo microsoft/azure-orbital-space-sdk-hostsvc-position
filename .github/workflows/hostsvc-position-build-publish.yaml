@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
     push:
         branches:
-        - km/add_action
+        - main
 
 jobs:
   build-hostsvc-position-amd64:
@@ -12,7 +12,7 @@ jobs:
       contents: read
       packages: write
 
-    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/service-build.yml@km/add_service_workflow
+    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/service-build.yml@main
     with:
       APP_PROJECT: ./src/hostsvc-position.csproj
       NUGET_PROJECT: ./src_pluginBase/pluginBase.csproj
@@ -32,7 +32,7 @@ jobs:
       contents: read
       packages: write
 
-    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/service-build.yml@km/add_service_workflow
+    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/service-build.yml@main
     with:
       APP_PROJECT: ./src/hostsvc-position.csproj
       NUGET_PROJECT: ./src_pluginBase/pluginBase.csproj
