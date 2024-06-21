@@ -8,7 +8,6 @@ on:
 
 jobs:
   test-hostsvc-position-amd64:
-    name: test-hostsvc-position-amd64
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -16,16 +15,15 @@ jobs:
       checks: write
       pull-requests: write
 
-    - uses: microsoft/azure-orbital-space-sdk-github-actions/composite-actions/test-app@al/test-app
-      with:
-        app_name: hostsvc-position
-      secrets:
-        GIT_HUB_USER_NAME: ${{ secrets.GIT_HUB_USER_NAME }}
-        GIT_HUB_USER_TOKEN: ${{ secrets.GIT_HUB_USER_TOKEN }}
-        SETUP_REPO_URL: ${{ secrets.SETUP_REPO_URL }}
+    uses: microsoft/azure-orbital-space-sdk-github-actions/composite-actions/test-app@al/test-app
+    with:
+      app_name: hostsvc-position
+    secrets:
+      GIT_HUB_USER_NAME: ${{ secrets.GIT_HUB_USER_NAME }}
+      GIT_HUB_USER_TOKEN: ${{ secrets.GIT_HUB_USER_TOKEN }}
+      SETUP_REPO_URL: ${{ secrets.SETUP_REPO_URL }}
 
   # test-hostsvc-position-arm64:
-  #   name: test-hostsvc-position-arm64
   #   runs-on: spacesdk-ubuntu-2204LTS-arm64
   #   permissions:
   #     contents: read
