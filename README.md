@@ -2,6 +2,8 @@
 
 [![hostsvc-position-build](https://github.com/microsoft/azure-orbital-space-sdk-hostsvc-position/actions/workflows/hostsvc-position-build-publish.yaml/badge.svg)](https://github.com/microsoft/azure-orbital-space-sdk-hostsvc-position/actions/workflows/hostsvc-position-build-publish.yaml)
 
+[![test-hostsvc-position](https://github.com/microsoft/azure-orbital-space-sdk-hostsvc-position/actions/workflows/hotsvc-position-test.yaml/badge.svg)](https://github.com/microsoft/azure-orbital-space-sdk-hostsvc-position/actions/workflows/hotsvc-position-test.yaml)
+
 This repository hosts the Hostsvc-Position.
 
 Outputs:
