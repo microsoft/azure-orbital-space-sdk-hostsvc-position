@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <StartupObject>Microsoft.Azure.SpaceSDK.HostServices.Position.IntegrationTests.Program</StartupObject>
+    <StartupObject>Microsoft.Azure.SpaceFx.HostServices.Position.IntegrationTests.Program</StartupObject>
     <GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
   <ItemGroup>
