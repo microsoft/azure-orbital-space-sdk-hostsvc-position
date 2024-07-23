@@ -59,7 +59,7 @@ public partial class MessageHandler<T> {
             message = output_request;
 
             // Log the information about the message being sent to the source app.
-            _logger.LogInformation("Sending message '{messageType}' to '{appId}'  (trackingId: '{trackingId}' / correlationId: '{correlationId}')", returnResponse.GetType().Name, fullMessage.SourceAppId, returnResponse.ResponseHeader.TrackingId, returnResponse.ResponseHeader.CorrelationId);
+            _logger.LogInformation("Sending message '{messageType}' to '{appId}'  (trackingId: '{trackingId}' / correlationId: '{correlationId}'/ status: '{status}')", returnResponse.GetType().Name, fullMessage.SourceAppId, returnResponse.ResponseHeader.TrackingId, returnResponse.ResponseHeader.CorrelationId, returnResponse.ResponseHeader.Status);
             // Send the return response to the source app.
             _client.DirectToApp(appId: fullMessage.SourceAppId, message: returnResponse);
         };

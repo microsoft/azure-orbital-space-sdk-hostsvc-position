@@ -47,12 +47,12 @@ public partial class MessageHandler<T> {
             message = output_request;
 
             // Log the debug information about the message being saved to cache.
-            _logger.LogDebug("Saving '{messageType}' to cache as '{cache_name}'  (trackingId: '{trackingId}' / correlationId: '{correlationId}')", message.Position.GetType().Name, CACHE_KEYS.LAST_KNOWN_POSITION, returnResponse.ResponseHeader.TrackingId, returnResponse.ResponseHeader.CorrelationId);
+            _logger.LogDebug("Saving '{messageType}' to cache as '{cache_name}'  (trackingId: '{trackingId}' / correlationId: '{correlationId}' / status: '{status}')", message.Position.GetType().Name, CACHE_KEYS.LAST_KNOWN_POSITION, returnResponse.ResponseHeader.TrackingId, returnResponse.ResponseHeader.CorrelationId, returnResponse.ResponseHeader.Status);
             // Save the message position to cache.
             _client.SaveCacheItem(cacheItemName: CACHE_KEYS.LAST_KNOWN_POSITION, cacheItem: message.Position).Wait();
 
             // Log the information about the message being sent to the source app.
-            _logger.LogInformation("Sending message '{messageType}' to '{appId}'  (trackingId: '{trackingId}' / correlationId: '{correlationId}')", returnResponse.GetType().Name, fullMessage.SourceAppId, returnResponse.ResponseHeader.TrackingId, returnResponse.ResponseHeader.CorrelationId);
+            _logger.LogInformation("Sending message '{messageType}' to '{appId}'  (trackingId: '{trackingId}' / correlationId: '{correlationId}' / status: '{status}')", returnResponse.GetType().Name, fullMessage.SourceAppId, returnResponse.ResponseHeader.TrackingId, returnResponse.ResponseHeader.CorrelationId, returnResponse.ResponseHeader.Status);
             // Send the return response to the source app.
             _client.DirectToApp(appId: fullMessage.SourceAppId, message: returnResponse);
         };
