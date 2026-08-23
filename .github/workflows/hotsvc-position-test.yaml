@@ -14,7 +14,7 @@ jobs:
       checks: write
       pull-requests: write
 
-    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/test-app.yaml@0.11.0-nightly
+    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/test-app.yaml@f20a6a5bd7b78a23f94412532a5e2f7d0c89d13b # 0.11.0-nightly
     with:
       APP_NAME: hostsvc-position
       WORKFLOW_AGENT: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
       checks: write
       pull-requests: write
 
-    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/test-app.yaml@0.11.0-nightly
+    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/test-app.yaml@f20a6a5bd7b78a23f94412532a5e2f7d0c89d13b # 0.11.0-nightly
     with:
       APP_NAME: hostsvc-position
       WORKFLOW_AGENT: spacesdk-ubuntu-2204LTS-arm64
